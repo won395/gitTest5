@@ -1,0 +1,15 @@
+package day01;
+
+public class String01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String str = "언덕위의 나의 집";
+		
+		str = "house"; //이전 거를 지우고 새로운 문자르 지정하는 것
+		System.out.println(str);
+
+	}
+
+}

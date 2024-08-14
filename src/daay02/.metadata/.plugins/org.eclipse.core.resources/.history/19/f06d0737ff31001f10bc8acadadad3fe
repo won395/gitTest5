@@ -1,0 +1,28 @@
+package day01;
+
+import java.util.Scanner;
+
+public class Ref {
+	
+	static int num3 = 50; //static를 쓰면 num3을 우선 실행, 메모리 공유
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//변하지 않는 변수 => 상수
+		final int NUM = 100; //final을 쓸떄 변수명 대문자
+		System.out.println(NUM);
+		
+		
+		Scanner as = new Scanner(System.in);
+		
+		int n1 = 1000;
+		float n2 = 3.14F; 
+		
+		System.out.println(n1);
+		System.out.println(n2);
+		
+
+	}
+
+}

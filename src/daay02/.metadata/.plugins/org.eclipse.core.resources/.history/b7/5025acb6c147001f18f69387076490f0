@@ -1,0 +1,13 @@
+package Fram.button;
+
+import javax.swing.JFrame;
+
+public class JbuttonA extends JFrame {
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}

@@ -1,0 +1,36 @@
+package day01;
+
+public class TypeCheck {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int num = 5;
+		int num2 = 2;
+		System.out.println((float)((float)num/num2)); //안쓰면 그냥 2.0 나옴 , 둘 중 하나가 실수여야지만 값이 나온다
+
+		int n1 = 10;
+		int n2 = 3;
+		System.out.println(n1+n2);
+		System.out.println((float)n1/n2);
+		
+		//문자+숫자 = 문자
+		System.out.println("값: "+50);
+		
+		//실수+정수 = 실수
+		System.out.println(5/2F);
+		//정수, 계산값 중 하나라도 실수일 경우, 실수로 인정
+		//실수타입: float, double
+		
+		//문자 => 숫자
+		String str1 = "10";
+		int numStr = Integer.parseInt(str1);
+		System.out.println("숫자: "+numStr);
+		
+		//숫자 => 문자
+		int numStr2 = 100;
+		String str2 = Integer.toString(numStr2);
+		System.out.println(str2);
+	}
+
+}

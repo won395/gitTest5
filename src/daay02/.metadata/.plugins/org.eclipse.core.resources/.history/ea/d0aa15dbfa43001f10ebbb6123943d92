@@ -1,0 +1,6 @@
+package day13;
+
+// VO, DTO 데이터를 자장하는 공간
+public class DeptVO {
+
+}

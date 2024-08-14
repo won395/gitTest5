@@ -1,0 +1,15 @@
+package ex1;
+
+import java.util.List;
+
+public class StudentScoreService {
+    private static StudentScoreDAO studentScoreDAO;
+    
+    public StudentScoreService() {
+        studentScoreDAO = new StudentScoreDAO();
+    }
+    
+    public static List<StuSc> getStudentScores() {
+        return studentScoreDAO.getStudentScores();
+    }
+}

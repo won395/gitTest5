@@ -1,0 +1,179 @@
+package ex;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Ex01 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Library library = new Library();
+        
+        while (true) {
+            System.out.println("1: 회원, 2: 비회원, 3: 나가기 ");
+            int ch = sc.nextInt();
+            sc.nextLine();
+
+            User user;
+            if (ch == 1) {
+                user = new Member(sc);
+            } else if (ch == 2) {
+                user = new NonMember(sc);
+            } else if (ch == 3) {
+                System.out.println("이용해주셔서 감사합니다.");
+                break;
+            } else {
+                System.out.println("번호를 잘못 입력하셨습니다 다시 선택해주세요");
+                continue;
+            }
+
+            while (true) {
+                System.out.println("1: 대출, 2: 반납, 3: 조회, 4: 전체조회, 5: 대출연장, 6: 뒤로가기");
+                int ac = sc.nextInt();
+                sc.nextLine();
+
+                if (ac == 1) {
+                    user.borrowBook(library);
+                } else if (ac == 2) {
+                    user.returnBook();
+                } else if (ac == 3) {
+                    user.viewInfo();
+                } else if (ac == 4) {
+                    library.printAllBooks();
+                } else if (ac == 5) {
+                    user.extendBorrowPeriod();
+                } else if (ac == 6) {
+                    break;
+                } else {
+                    System.out.println("번호를 잘못 입력하셨습니다 다시 선택해주세요");
+                }
+            }
+        }
+        sc.close();
+    }
+}
+
+class Book {
+    private String title;
+    private String type;
+
+    public Book(String title, String type) {
+        this.title = title;
+        this.type = type;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getType() {
+        return type;
+    }
+}
+
+class Library {
+    private List<Book> books;
+
+    public Library() {
+        books = new ArrayList<>();
+        books.add(new Book("Philosophy Book", "Philosophy"));
+        books.add(new Book("Religion Book", "Religion"));
+        books.add(new Book("Science Book", "Science"));
+        books.add(new Book("Art Book", "Art"));
+        books.add(new Book("Language Book", "Language"));
+        books.add(new Book("Literature Book", "Literature"));
+        books.add(new Book("History Book", "History"));
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void printAllBooks() {
+        for (Book book : books) {
+            System.out.println("Title: " + book.getTitle() + ", Type: " + book.getType());
+        }
+    }
+}
+
+abstract class User {
+    protected Scanner sc;
+    protected String name;
+    protected List<Book> borrowedBooks;
+    protected int borrowLimit;
+
+    public User(Scanner sc) {
+        this.sc = sc;
+        System.out.println("이름을 입력해주세요: ");
+        this.name = sc.nextLine();
+        this.borrowedBooks = new ArrayList<>();
+    }
+
+    public void borrowBook(Library library) {
+        if (borrowedBooks.size() < borrowLimit) {
+            System.out.println("대출할 책을 선택해주세요: ");
+            library.printAllBooks();
+            String bookTitle = sc.nextLine();
+            for (Book book : library.getBooks()) {
+                if (book.getTitle().equalsIgnoreCase(bookTitle)) {
+                    borrowedBooks.add(book);
+                    System.out.println("대출 완료: " + bookTitle);
+                    return;
+                }
+            }
+            System.out.println("책을 찾을 수 없습니다.");
+        } else {
+            System.out.println("대출 한도 초과");
+        }
+    }
+
+    public void returnBook() {
+        System.out.println("반납할 책을 입력해주세요: ");
+        String bookTitle = sc.nextLine();
+        for (Book book : borrowedBooks) {
+            if (book.getTitle().equalsIgnoreCase(bookTitle)) {
+                borrowedBooks.remove(book);
+                System.out.println("반납 완료: " + bookTitle);
+                return;
+            }
+        }
+        System.out.println("대출 내역에 없는 책입니다.");
+    }
+
+    public void viewInfo() {
+        System.out.println("이름: " + name);
+        System.out.println("대출 중인 책들:");
+        for (Book book : borrowedBooks) {
+            System.out.println("Title: " + book.getTitle() + ", Type: " + book.getType());
+        }
+    }
+
+    public abstract void extendBorrowPeriod();
+}
+
+class Member extends User {
+
+    public Member(Scanner sc) {
+        super(sc);
+        this.borrowLimit = 5;
+    }
+
+    @Override
+    public void extendBorrowPeriod() {
+        System.out.println("대출 기간이 연장되었습니다.");
+    }
+}
+
+class NonMember extends User {
+
+    public NonMember(Scanner sc) {
+        super(sc);
+        this.borrowLimit = 3;
+    }
+
+    @Override
+    public void extendBorrowPeriod() {
+        System.out.println("비회원은 대출 기간을 연장할 수 없습니다.");
+    }
+}

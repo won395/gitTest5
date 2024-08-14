@@ -1,0 +1,14 @@
+package day01;
+
+public class TypeCheck {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int num = 5;
+		int num2 = 2;
+		System.out.println(num/num2);
+
+	}
+
+}

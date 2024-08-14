@@ -1,0 +1,29 @@
+package Fram.button;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+
+public class JbuttonA extends JFrame {
+	
+	public JbuttonA() {
+		setSize(300, 500);
+		setLocation(0, 100);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		//버튼 생성
+		Jbutton btn = new Jbutton("버튼1");
+		//버튼을 레이아웃(프레임 추가)
+		
+		setVisible();
+	}
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}

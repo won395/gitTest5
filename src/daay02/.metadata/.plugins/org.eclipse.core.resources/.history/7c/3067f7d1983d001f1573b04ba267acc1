@@ -1,0 +1,30 @@
+package day12;
+
+public class InnerClassB {
+
+	public static void main(String[] args) {
+		
+		String op = "+";
+		switch(op) {
+		case "+":
+			System.out.println(add);
+			break;
+		case "-":
+			System.out.println(add);
+			break;
+		case "*":
+			System.out.println(add);
+			break;
+		case "/":
+			System.out.println(add);
+			break;
+		}
+
+	}
+	
+	class NumCal {
+		public void add(int num1, int num2) {
+			System.out.println(num1+"+"+num2);
+		}
+
+}

@@ -1,0 +1,17 @@
+package Fram.layout;
+
+import javax.swing.JFrame;
+
+public class FlowLayoutA extends JFrame {
+	
+	public FlowLayoutA() {
+		setSize(500, 500);
+		setLocale(300, 300);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

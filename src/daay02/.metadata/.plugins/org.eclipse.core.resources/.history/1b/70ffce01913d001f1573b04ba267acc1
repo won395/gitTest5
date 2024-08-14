@@ -1,0 +1,27 @@
+package day12;
+
+import java.util.Scanner;
+
+public class TryCach02 {
+
+	public static void main(String[] args) {
+		
+		//try catch를 이용해서 입력받은 문자가 숫자인지 비교
+		String str = "abc"; //문자
+		String str1 = "123"; //타입은 문자 / 숫자를 문자로 저장
+		
+		Scanner sc = new Scanner(System.in);
+		String strQue = sc.next();
+		
+		//입력받은 문자가 숫자일떄 정상적으로 실행됨
+		//입력받는 문자가 숫자기 아닐면 에러가 발생
+		//트라이가 무사히 종료되면 성공
+		//캐치가 한번이라도 발생되면 실패
+		//Excption 사용 금지
+		int num = Integer.parseInt(strQue);
+		
+		//입력받은 문자가 숫자인지 확인하는 구문을 만드시오
+
+	}
+
+}

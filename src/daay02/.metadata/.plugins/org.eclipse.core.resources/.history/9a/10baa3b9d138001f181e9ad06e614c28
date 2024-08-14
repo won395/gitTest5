@@ -1,0 +1,82 @@
+package ex;
+
+import java.util.Scanner;
+
+public class Ex01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Ex01 ex01 = new Ex01();
+        Scanner sc = new Scanner(System.in);
+        //1. 회원 2. 비회원
+        //회원 - 1.대출 2.반납 3.조회 4.전체조회 5.대출연장 6.탈출
+        //비회원 - 1.대출 2.반납 3.조회 4.전체조회 6.탈출
+        while (true) {
+            System.out.println("1: 회원, 2: 비회원, 3: 나가기 ");
+            int ch = sc.nextInt();
+            sc.nextLine();
+            
+            if (ch == 1) {	
+                ex01 = new Member();															
+                } else if (ch == 2) {
+                ex01 = new NMember();
+            } else if (ch == 3) {
+            	System.out.println("이용해주셔서 감사합니다.");
+            	break;
+            } else {
+                System.out.println("번호를 잘못 입력하셨습니다 다시 선택해주세요");
+                continue;
+            }
+            
+            while (true) {
+            	System.out.println("1: 대출, 2: 반납, 3: 조회, 4: 전체조회, 5: 대출연장, 6: 뒤로가기");
+            	int ac = sc.nextInt();
+            	
+            	if (ac == 1) {
+            		int num =0;
+            		if (num == 1) {
+            			System.out.println("대출할 책을 선택해주세요: ");
+            		} else if (ac == 2) {
+            			System.out.println("반납");
+            		} else if (ac == 3) {
+            			System.out.println("조회");
+            		} else if (ac == 4) {
+            			System.out.println("전체조회");
+            			//ex01.PrintAll(); 보
+            		} else if(ac == 5) {
+            			System.out.println("대출연장");
+            		} else if (ac == 6) {
+            			break;
+            		} else {
+            			System.out.println("번호를 잘못 입력하셨습니다 다시 선택해주세요");
+            			continue;
+            		}
+            	}
+            }
+        }
+	}
+}
+
+class Book {
+	int[] B = new int[5]; //책 갯수
+	int n1 = 0;
+		private String Booktitle; //책이름
+		private String Booktype; //책종류
+	    
+	    public void PrintAll() {
+	    	System.out.println("전체 리스트 출력: ");
+	    	for(int i = 0; i < n1; i++) {
+	    		System.out.println(B[i]+" ");
+	    	}
+	    }
+  
+}
+
+class Member extends Ex01 {
+}
+
+class NMember extends Ex01 {
+	
+}
+

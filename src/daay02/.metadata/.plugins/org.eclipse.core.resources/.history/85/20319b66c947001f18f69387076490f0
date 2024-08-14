@@ -1,0 +1,27 @@
+package Fram.field;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class FieldA extends JFrame {
+	
+	public FieldA() {
+		setSize(300, 500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		JTextField text = new JTextField(10);
+		JButton btn new JButton("Click");
+		add(text);
+		
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new FieldA();
+
+	}
+
+}

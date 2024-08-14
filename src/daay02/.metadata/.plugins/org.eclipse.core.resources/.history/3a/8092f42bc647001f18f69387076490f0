@@ -1,0 +1,52 @@
+package Fram.button;
+
+package Fram.button;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class JbuttonC extends JFrame {
+	
+	public JbuttonC() {
+		setSize(300, 500);
+		setLocation(0, 100);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		//버튼 생성
+		JButton btn = new JButton("버튼1");
+		//버튼을 레이아웃(프레임 추가)
+		add(btn);
+		
+		setVisible(true);
+		
+		//btn을 눌렀을때 어떻게 할 것인지
+		btn.addActionListener(new ActionListener() {
+			
+			//버튼 클릭했을떄 발생되는 이벤트를 여기서 처리
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				System.out.println("버튼 클릭");
+				
+			}
+		});
+		
+		//람다식 (초심자 배려 x)
+		//추상메소드가 별한개만 포함된 인터페이스 혹은 추상메서드
+		btn.addActionListener(e -> { System.out.println("btn 클릭"); });
+	}
+
+	public static void main(String[] args) {
+		new J
+		
+
+	}
+
+}

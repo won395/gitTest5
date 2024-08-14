@@ -1,0 +1,157 @@
+package ex;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Ex02 {
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        MemberManager memberManager = new MemberManager();
+
+        while (true) {
+            System.out.println("1: 회원, 2: 비회원, 3: 나가기 ");
+            int ch = sc.nextInt();
+            sc.nextLine();
+            
+            if (ch == 1 || ch == 2) {    
+                Membe02 member = (ch == 1) ? new Member02() : new NMember();
+                memberManager.manageMember(member, sc);
+            } else if (ch == 3) {
+                System.out.println("이용해주셔서 감사합니다.");
+                break;
+            } else {
+                System.out.println("번호를 잘못 입력하셨습니다 다시 선택해주세요");
+            }
+        }
+        sc.close();
+    }
+}
+
+class Book {
+    private String title;
+    private String type;
+
+    public Book(String title, String type) {
+        this.title = title;
+        this.type = type;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getType() {
+        return type;
+    }
+}
+
+class Library {
+    private List<Book> books;
+
+    public Library() {
+        books = new ArrayList<>();
+        books.add(new Book("Philosophy Book", "Philosophy"));
+        books.add(new Book("Religion Book", "Religion"));
+        books.add(new Book("Science Book", "Science"));
+        books.add(new Book("Art Book", "Art"));
+        books.add(new Book("Language Book", "Language"));
+        books.add(new Book("Literature Book", "Literature"));
+        books.add(new Book("History Book", "History"));
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void printAllBooks() {
+        for (Book book : books) {
+            System.out.println("Title: " + book.getTitle() + ", Type: " + book.getType());
+        }
+    }
+}
+
+class MemberManager {
+    private Library library;
+    private List<String> borrowedBooks;
+
+    public MemberManager() {
+        library = new Library();
+        borrowedBooks = new ArrayList<>();
+    }
+
+    public void manageMember(Member member, Scanner sc) {
+        while (true) {
+            System.out.println("1: 대출, 2: 반납, 3: 조회, 4: 전체조회, 5: 대출연장, 6: 뒤로가기");
+            int ac = sc.nextInt();
+            sc.nextLine();
+
+            switch (ac) {
+                case 1:
+                    if (borrowedBooks.size() < member.getBorrowLimit()) {
+                        System.out.println("대출할 책을 선택해주세요: ");
+                        library.printAllBooks();
+                        String bookTitle = sc.nextLine();
+                        borrowedBooks.add(bookTitle);
+                        System.out.println("대출 완료: " + bookTitle);
+                    } else {
+                        System.out.println("대출 한도 초과");
+                    }
+                    break;
+                case 2:
+                    System.out.println("반납할 책을 입력해주세요: ");
+                    String returnBookTitle = sc.nextLine();
+                    if (borrowedBooks.remove(returnBookTitle)) {
+                        System.out.println("반납 완료: " + returnBookTitle);
+                    } else {
+                        System.out.println("대출 내역에 없는 책입니다.");
+                    }
+                    break;
+                case 3:
+                    System.out.println("조회");
+                    for (String book : borrowedBooks) {
+                        System.out.println(book);
+                    }
+                    break;
+                case 4:
+                    System.out.println("전체조회");
+                    library.printAllBooks();
+                    break;
+                case 5:
+                    if (member instanceof Member) {
+                        System.out.println("대출연장");
+                        // Extend borrow logic here
+                    } else {
+                        System.out.println("비회원은 대출 연장이 불가능합니다.");
+                    }
+                    break;
+                case 6:
+                    return;
+                default:
+                    System.out.println("번호를 잘못 입력하셨습니다 다시 선택해주세요");
+                    break;
+            }
+        }
+    }
+}
+
+abstract class Member {
+    protected int borrowLimit;
+    
+    public int getBorrowLimit() {
+        return borrowLimit;
+    }
+}
+
+class RegularMember extends Member {
+    public RegularMember() {
+        this.borrowLimit = 5;
+    }
+}
+
+class NMember extends Member {
+    public NMember() {
+        this.borrowLimit = 3;
+    }
+}

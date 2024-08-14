@@ -1,0 +1,13 @@
+package Fram.layout;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class CardLayout extends Frame {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package Fram.start;
+
+import javax.swing.JFrame;
+
+public class JFrameA {
+
+	//메인에서 사용할떄 주로 사용
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		JFrame jFrame = new JFrame();
+
+	}
+
+}

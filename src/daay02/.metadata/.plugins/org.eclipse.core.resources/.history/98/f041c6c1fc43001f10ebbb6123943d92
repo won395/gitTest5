@@ -1,0 +1,44 @@
+package day13;
+
+import java.sql.*;
+
+public class PreStatmentB {
+
+		Connection conn;
+		Statement stat;
+		PreparedStatement pstmt;
+		ResultSet rs;
+		
+		public PreStatmentB() {
+			try {
+				String url = "jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC";
+				String user = "root";
+				String pw = "1234";
+				conn = DriverManager.getConnection(url,user,pw); //기본 에러
+				System.out.println("연결 성공");
+			} catch (SQLException e) {
+				
+			}
+		}
+		
+		public static void main(String [] args) {
+			PreStatmentB preStatmentB = new PreStatmentB();
+			preStatmentB.selectDept();
+		}
+		
+		public void selectDept() {
+			
+			try {
+				//* 사용도 jdbc는 최대한 피해라
+				String sql = "select department_id, department_name, manager_id, location_id from departments";
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				try { if(rs != null) { rs.close(); } } catch (Exception e) { }
+				try { if(stat != null) { stat.close(); } } catch (Exception e) { }
+				try { if(conn != null) { conn.close(); } } catch (Exception e) { }
+			}
+		}
+}

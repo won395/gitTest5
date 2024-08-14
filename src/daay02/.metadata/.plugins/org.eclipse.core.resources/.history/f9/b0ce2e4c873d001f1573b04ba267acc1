@@ -1,0 +1,35 @@
+package day12;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class TrtCatch {
+
+	//EXCEPTION, THREAD, INNERCLASS
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//컬력션 프레임 워크
+		//리스트, 셋, 맵
+		
+		//리스트
+		//배열의 사용 편의를 위해 만들어잔 객체
+		//동적배열 <메모리 크기가 변화된다
+		//변화라는 단어는 삭제와 추가기능
+		
+		//어레이리스트보다 느릴수 있다
+		//링크드 리스트와 어레이 리스트의 속도차이가 존재하므로
+		//하나만 맹몾겆으로 사용하는 것은 지양
+		
+		//동적바인딩
+		//상속
+		//오버라이드 된 메서드만 사용가능
+		List<String> list; // = new LinkedList<>();
+		list = new ArrayList<>();
+		
+		list.add("슈퍼맨");
+
+	}
+
+}

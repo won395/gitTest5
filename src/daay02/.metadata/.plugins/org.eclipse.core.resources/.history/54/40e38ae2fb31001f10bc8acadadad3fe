@@ -1,0 +1,14 @@
+package day01;
+
+public class Ref {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//변하지 않는 변수 => 상수
+		final int NUM = 100; //변수명 대문자
+		System.out.println(NUM);
+
+	}
+
+}

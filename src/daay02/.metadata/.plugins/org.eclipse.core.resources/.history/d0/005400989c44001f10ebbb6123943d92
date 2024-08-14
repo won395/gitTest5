@@ -1,0 +1,21 @@
+package ex;
+
+import java.util.List;
+
+public class Stumain {
+
+	public static void main(String[] args) {
+		Stumain stumain = new Stumain();
+        List<StuSc> list = Stumain.getStudentScores();
+        
+        for (StuSc student : list) {
+            System.out.println("이름: " + student.getName());
+            System.out.println("수학점수: " + student.getKorScore());
+            System.out.println("영어점수: " + student.getEngScore());
+            System.out.println("수학점수: " + student.getMathScore());
+            System.out.println();
+        }
+
+	}
+
+}

@@ -1,0 +1,20 @@
+package Fram.layout;
+
+import javax.swing.JFrame;
+
+public class BorderLayoutB extends JFrame {
+	
+	public BorderLayoutB() {
+		setSize(500, 500);
+		setLocation(300, 300);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

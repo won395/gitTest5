@@ -1,0 +1,10 @@
+package day13;
+
+// VO, DTO 데이터를 자장하는 공간
+public class DeptVO {
+	private int department_id;
+	private String department_name;
+	private int manager_id;
+	private int location_id;
+
+}

@@ -1,0 +1,27 @@
+package Fram.layout;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class CardLayoutA extends JFrame {
+	
+	public CardLayoutA() {
+		setSize(500, 500);
+		setLocation(300, 300);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		CardLayout cardLayout = new CardLayout();
+		JPanel jPanel = new JPanel(cardLayout);
+		
+		// 각 패널 생성
+		JPanel card1 = new JPanel();
+		
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new CardLayoutA();
+
+	}
+
+}

@@ -1,0 +1,19 @@
+package ex;
+
+public class Stumain {
+
+	public static void main(String[] args) {
+		StudentScoreService studentScoreService = new StudentScoreService();
+        List<StuSc> list = studentScoreService.getStudentScores();
+        
+        for (StuSc student : list) {
+            System.out.println("이름: " + student.getName());
+            System.out.println("수학점수: " + student.getKorScore());
+            System.out.println("영어점수: " + student.getEngScore());
+            System.out.println("수학점수: " + student.getMathScore());
+            System.out.println();
+        }
+
+	}
+
+}

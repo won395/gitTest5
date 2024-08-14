@@ -1,0 +1,24 @@
+package day12;
+
+//중첩 클래스
+//class  안에서 사용할 것인지
+//메서드 안에서 사용할 것인지
+
+//접근제어자
+//public, default, private
+//public: 모든 프로젝트에서 접근 가능하다
+//default: 같은 패키지에서만 접근이 가능하다
+//private: 같은 클래스에서만 접근이 가능하다
+public class InnerClassA {
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}
+//class 명칭하나당, 하나만 마들어주셈
+class Student {
+	
+}

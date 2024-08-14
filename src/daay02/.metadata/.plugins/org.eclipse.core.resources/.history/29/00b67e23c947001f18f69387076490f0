@@ -1,0 +1,21 @@
+package Fram.field;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+
+public class FieldA extends JFrame {
+	
+	public FieldA() {
+		setSize(300, 500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(new FlowLayout(FlowLayout.LEFT));
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

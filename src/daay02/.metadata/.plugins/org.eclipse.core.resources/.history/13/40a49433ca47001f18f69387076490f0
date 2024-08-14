@@ -1,0 +1,23 @@
+package Fram.layout;
+
+import javax.swing.JFrame;
+
+public class FlowLayoutA extends JFrame {
+	
+	public FlowLayoutA() {
+		setSize(500, 500);
+		setLocation(300, 300);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		JButton btn1 new JButton("버튼 1");
+		JButton btn2 new JButton("버튼 1");
+		JButton btn3 new JButton("버튼 1");
+		JButton btn4 new JButton("버튼 1");
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

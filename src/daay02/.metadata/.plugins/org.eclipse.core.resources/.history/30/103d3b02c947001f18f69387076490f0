@@ -1,0 +1,18 @@
+package Fram.field;
+
+import javax.swing.JFrame;
+
+public class FieldA extends JFrame {
+	
+	public FieldA() {
+		setSize(300, 500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

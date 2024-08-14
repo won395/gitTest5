@@ -1,0 +1,70 @@
+package day12;
+
+import java.util.Scanner;
+
+public class InnerClassB {
+
+	public static void main(String[] args) {
+		
+		//숫자 2개 문자 1개(기호: )
+		//사칙연산만들어라
+		
+		//무한반복 while(true)
+		//잘못 입력했을떄 에러가 발생됨 try catch로 에러가 발생이 되어도 계속진행 할수 있도록 예외 처리해주세요
+		//Exception 사용 가능
+		String op ="";
+		int num1 = 0;
+		int num2 = 0;
+		NumCal numC = new InnerClassB().new NumCal();
+		
+		
+		try {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("1번쨰 값");
+			num1 = sc.nextInt();
+			System.out.println("2번쨰 값");
+			num2 = sc.nextInt();
+			System.out.println("+, -, *, / 중에 선택하세요");
+			op = sc.next();
+			
+		} catch (Exception e) {
+			System.out.println("에러");
+		}
+		
+		while(true) {
+			switch(op) {
+			case "+":
+				numC.add(num1, num2);
+				break;
+			case "-":
+				numC.sub(num1, num2);
+				break;
+			case "*":
+				numC.rhq(num1, num2);
+				break;
+			case "/":
+				numC.sksna(num1, num2);
+				break;
+			}
+		}
+	}
+	
+	class NumCal {
+		public void add(int num1, int num2) {
+			System.out.println(num1+"+"+num2+"="+(num1+num2));
+		}
+			
+		public void sub(int num1, int num2) {
+			System.out.println(num1+"-"+num2+"="+(num1-num2));
+		}
+		
+		public void rhq(int num1, int num2) {
+			System.out.println(num1+"*"+num2+"="+(num1*num2));
+		}
+		
+		public void sksna(int num1, int num2) {
+			System.out.println(num1+"/"+num2+"="+(num1/num2));
+		}
+
+	}
+}

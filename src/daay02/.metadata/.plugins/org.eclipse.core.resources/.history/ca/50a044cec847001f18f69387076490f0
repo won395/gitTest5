@@ -1,0 +1,10 @@
+package Fram.field;
+
+public class FieldA {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

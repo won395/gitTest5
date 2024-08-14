@@ -1,0 +1,24 @@
+package day01;
+
+import java.util.Scanner;
+
+public class A1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("첫번째 숫자를 입력하세요.");
+		String str1 = sc.next();
+		System.out.println("두번째 숫자를 입력하세요.");
+		String str2 = sc.next();
+		
+		System.out.println(Integer.parseInt(str1)+Integer.parseInt(str2));
+		System.out.println(Integer.parseInt(str1)-Integer.parseInt(str2));
+		System.out.println(Integer.parseInt(str1)*Integer.parseInt(str2));
+		System.out.println((float)Integer.parseInt(str1)/Integer.parseInt(str2));
+		
+		
+	}
+
+}

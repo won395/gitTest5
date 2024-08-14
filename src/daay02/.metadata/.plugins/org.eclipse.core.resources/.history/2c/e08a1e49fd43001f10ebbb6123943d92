@@ -1,0 +1,60 @@
+package day13;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PreStatmentB {
+
+		Connection conn;
+		Statement stat;
+		PreparedStatement pstmt;
+		ResultSet rs;
+		
+		public PreStatmentB() {
+			try {
+				String url = "jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC";
+				String user = "root";
+				String pw = "1234";
+				conn = DriverManager.getConnection(url,user,pw); //기본 에러
+				System.out.println("연결 성공");
+			} catch (SQLException e) {
+				
+			}
+		}
+		
+		public static void main(String [] args) {
+			PreStatmentB preStatmentB = new PreStatmentB();
+			preStatmentB.selectDept();
+		}
+		
+		public void selectDept() {
+			List<DeptVO> list = new ArrayList<DeptVO>();
+			try {
+				//* 사용도 jdbc는 최대한 피해라
+				String sql = "select department_id, department_name, manager_id, location_id from departments";
+				
+				pstmt = conn.prepareStatement(sql);
+				
+				// ? 있을경우 pstmt.set~~~
+				
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					DeptVO deptVO = new DeptVO();
+					deptVO.setDepartmentId(rs.getInt(1));
+					deptVO.setDepartmentName(rs.getString(2));
+					deptVO.setLocationId(rs.getInt(3));
+					deptVO.setManagerId(rs.getInt(4));
+				}
+				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				try { if(rs != null) { rs.close(); } } catch (Exception e) { }
+				try { if(stat != null) { stat.close(); } } catch (Exception e) { }
+				try { if(conn != null) { conn.close(); } } catch (Exception e) { }
+			}
+		}
+}

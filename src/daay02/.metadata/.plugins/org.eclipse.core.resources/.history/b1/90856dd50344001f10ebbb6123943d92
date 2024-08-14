@@ -1,0 +1,12 @@
+package ex;
+
+public class StuSc {
+	
+	private String name; 
+	private int korScore;
+	private int engScore;
+	private int mathScore;
+	
+	
+
+}

@@ -1,0 +1,16 @@
+package Fram.layout;
+
+import javax.swing.*;
+
+public class GridLayoutC extends JFrame {
+	
+	public GridLayoutC() {
+		setsize(500, 500)
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
